@@ -1,0 +1,105 @@
+<!-- <p>register works!</p> -->
+<!-- <p>login works!</p> -->
+
+<div class="parent clearfix">
+  <div class="bg-illustration">
+    <!-- <img src="https://i.ibb.co/Pcg0Pk1/logo.png" alt="logo"> -->
+  </div>
+
+  <div class="login">
+    <div class="container" width="20">
+      <h1>Create your account</h1>
+
+      <div class="login-form">
+        <form [formGroup]="registerForm">
+          <input formControlName="FirstName" type="firstname" placeholder="FirstName"
+            [class.is-invalid]="registerForm.controls['FirstName'].invalid && (registerForm.controls['FirstName'].dirty || registerForm.controls['FirstName'].touched)">
+          <div
+            *ngIf="registerForm.controls['FirstName'].invalid && (registerForm.controls['FirstName'].dirty || registerForm.controls['FirstName'].touched)"
+            class="invalid-feedback">
+            <div *ngIf="registerForm.hasError('required','FirstName')" style="color:red">
+              First name is required.
+            </div>
+          </div>
+
+          <input formControlName="LastName" type="lastname" placeholder="LastName"
+            [class.is-invalid]="registerForm.controls['LastName'].invalid && (registerForm.controls['LastName'].dirty || registerForm.controls['LastName'].touched)">
+          <div
+            *ngIf="registerForm.controls['LastName'].invalid && (registerForm.controls['LastName'].dirty || registerForm.controls['LastName'].touched)"
+            class="invalid-feedback">
+            <div *ngIf="registerForm.hasError('required','LastName')" style="color:red">
+              Last name is required.
+            </div>
+          </div>
+
+          <input formControlName="Contact" type="contact" placeholder="Contact"
+            [class.is-invalid]="registerForm.controls['Contact'].invalid && (registerForm.controls['Contact'].dirty || registerForm.controls['Contact'].touched)">
+          <div *ngIf="registerForm.controls['Contact'].invalid && registerForm.controls['Contact'].touched"
+            class="invalid-feedback">
+            <div *ngIf="registerForm.hasError('required','Contact')" style="color:red">
+              Please enter mobile number.
+            </div>
+            <div *ngIf="registerForm.hasError('pattern','Contact')" style="color:red">
+              Mobile number is not 10 digit.
+            </div>
+          </div>
+
+          <input formControlName="Location" type="location" placeholder="Location"
+            [class.is-invalid]="registerForm.controls['Location'].invalid && (registerForm.controls['Location'].dirty || registerForm.controls['Location'].touched)">
+          <div
+            *ngIf="registerForm.controls['Location'].invalid && (registerForm.controls['Location'].dirty || registerForm.controls['Location'].touched)"
+            class="invalid-feedback">
+            <div *ngIf="registerForm.hasError('required','Location')" style="color:red">
+              Location is required.
+            </div>
+          </div>
+
+          <input formControlName="Email" type="email" placeholder="Email"
+            [class.is-invalid]="registerForm.controls['Email'].invalid && (registerForm.controls['Email'].dirty || registerForm.controls['Email'].touched)">
+          <div *ngIf="registerForm.controls['Email'].invalid &&
+            (registerForm.controls['Email'].dirty || registerForm.controls['Email'].touched)" class="invalid-feedback">
+            <div *ngIf="registerForm.hasError('required','Email')" style="color:red">
+              Email is required.
+            </div>
+          </div>
+          <div *ngIf="registerForm.controls['Email'].touched" class="invalid-feedback">
+            <div *ngIf="registerForm.hasError('pattern','Email')" style="color:red">
+              Email is invalid.
+            </div>
+          </div>
+
+          <input formControlName="Password" type="password" placeholder="Password"
+            [class.is-invalid]="registerForm.controls['Password'].invalid && (registerForm.controls['Password'].dirty || registerForm.controls['Password'].touched)">
+          <div
+            *ngIf="registerForm.controls['Password'].invalid && (registerForm.controls['Password'].dirty || registerForm.controls['Password'].touched)"
+            class="invalid-feedback">
+            <div *ngIf="registerForm.hasError('required','Password')" style="color:red">
+              Password is required.
+            </div>
+          </div>
+
+          <input formControlName="ConfirmPassword" type="password" placeholder="Confirm Password"
+            [class.is-invalid]="registerForm.controls['ConfirmPassword'].invalid && (registerForm.controls['ConfirmPassword'].dirty || registerForm.controls['ConfirmPassword'].touched)">
+          <div
+            *ngIf="registerForm.controls['ConfirmPassword'].invalid && (registerForm.controls['ConfirmPassword'].dirty || registerForm.controls['ConfirmPassword'].touched)"
+            class="invalid-feedback">
+            <div *ngIf="registerForm.hasError('required','ConfirmPassword')" style="color:red">
+              Confirm password is required.
+            </div>
+            <div *ngIf="registerForm.hasError('confirmPasswordValidator','ConfirmPassword')" class="invalid-feedback">
+              <div *ngIf="registerForm.hasError('confirmPasswordValidator','ConfirmPassword')" style="color:red">
+                Passsword and Confirm Password didn't match.
+              </div>
+            </div>
+          </div>
+
+
+          <button (click)="Register()" type="submit">Register</button>
+          <div>
+            <a routerLink="/login">Already A Member? Go Back To Login</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

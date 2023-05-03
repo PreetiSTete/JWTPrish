@@ -1,0 +1,52 @@
+<!-- <p>login works!</p> -->
+
+<div class="parent clearfix">
+  <div class="bg-illustration">
+    <!-- <img src="https://i.ibb.co/Pcg0Pk1/logo.png" alt="logo"> -->
+  </div>
+
+  <div class="login">
+    <div class="container" width="20">
+      <h1>Login to access to<br />your account</h1>
+
+      <div class="login-form">
+        <form [formGroup]="loginForm">
+          <input formControlName="Email" type="username" placeholder="Email"
+            [class.is-invalid]="loginForm.controls['Email'].invalid && (loginForm.controls['Email'].dirty || loginForm.controls['Email'].touched)">
+          <div *ngIf="loginForm.controls['Email'].invalid &&
+            (loginForm.controls['Email'].dirty || loginForm.controls['Email'].touched)" class="invalid-feedback">
+            <div *ngIf="loginForm.hasError('required','Email')" style="color:red">
+              Email is required.
+            </div>
+          </div>
+          <div *ngIf="loginForm.controls['Email'].touched" class="invalid-feedback">
+            <div *ngIf="loginForm.hasError('pattern','Email')" style="color:red">
+              Email is invalid.
+            </div>
+          </div>
+
+          <input formControlName="Password" type="password" placeholder="Password"
+            [class.is-invalid]="loginForm.controls['Password'].invalid && (loginForm.controls['Password'].dirty || loginForm.controls['Password'].touched)">
+          <div
+            *ngIf="loginForm.controls['Password'].invalid && (loginForm.controls['Password'].dirty || loginForm.controls['Password'].touched)"
+            class="invalid-feedback">
+            <div *ngIf="loginForm.hasError('required','Password')" style="color:red">
+              Password is required.
+            </div>
+          </div>
+
+
+          <div class="forget-pass">
+            <a href="#">Forgot Password ?</a>
+          </div>
+
+          <button (click)="SubmitLogin()" type="submit" [disabled]="!loginForm.valid">LOGIN</button>
+          <div><br />
+            <a routerLink="/register">Sign In To Create An Account</a>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>

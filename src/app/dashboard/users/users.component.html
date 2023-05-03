@@ -1,0 +1,256 @@
+<div style="background-color: rgb(161, 189, 241);">
+  <!-- <h1>Hi {{user.firstName}}!</h1>-->
+  <p style="text-align: center;" >You're logged in with user account!!</p>
+  <!-- <p><a routerLink="/users">Manage Users</a></p> -->
+
+
+
+<button style="margin-left: 87%;" type="button" class="btn btn-success" data-bs-toggle="modal"
+  data-bs-target="#addModal" data-bs-whatever="@AddNew">Add New</button>
+
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div style="background-color: cornflowerblue;" class="modal-header">
+        <h1 class="modal-title fs-5" id="addModalLabel">Add New Employee Details</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="registerForm">
+          <!--<div class="mb-3">
+          <input formControlName="FirstName" type="firstname" placeholder="FirstName"
+            [class.is-invalid]="registerForm.controls['FirstName'].invalid && (registerForm.controls['FirstName'].dirty || registerForm.controls['FirstName'].touched)">
+          <div
+            *ngIf="registerForm.controls['FirstName'].invalid && (registerForm.controls['FirstName'].dirty || registerForm.controls['FirstName'].touched)"
+            class="invalid-feedback">
+            <div *ngIf="registerForm.hasError('required','FirstName')" style="color:red">
+              First name is required.
+            </div>
+          </div>
+          </div>
+          <div class="mb-3">
+          <input formControlName="LastName" type="lastname" placeholder="LastName"
+            [class.is-invalid]="registerForm.controls['LastName'].invalid && (registerForm.controls['LastName'].dirty || registerForm.controls['LastName'].touched)">
+          <div
+            *ngIf="registerForm.controls['LastName'].invalid && (registerForm.controls['LastName'].dirty || registerForm.controls['LastName'].touched)"
+            class="invalid-feedback">
+            <div *ngIf="registerForm.hasError('required','LastName')" style="color:red">
+              Last name is required.
+            </div>
+          </div>
+          </div>
+          <div class="mb-3">
+          <input formControlName="Contact" type="contact" placeholder="Contact"
+            [class.is-invalid]="registerForm.controls['Contact'].invalid && (registerForm.controls['Contact'].dirty || registerForm.controls['Contact'].touched)">
+          <div *ngIf="registerForm.controls['Contact'].invalid && registerForm.controls['Contact'].touched"
+            class="invalid-feedback">
+            <div *ngIf="registerForm.hasError('required','Contact')" style="color:red">
+              Please enter mobile number.
+            </div>
+            <div *ngIf="registerForm.hasError('pattern','Contact')" style="color:red">
+              Mobile number is not 10 digit.
+            </div>
+          </div>
+          </div>
+          <div class="mb-3">
+          <input formControlName="Location" type="location" placeholder="Location"
+            [class.is-invalid]="registerForm.controls['Location'].invalid && (registerForm.controls['Location'].dirty || registerForm.controls['Location'].touched)">
+          <div
+            *ngIf="registerForm.controls['Location'].invalid && (registerForm.controls['Location'].dirty || registerForm.controls['Location'].touched)"
+            class="invalid-feedback">
+            <div *ngIf="registerForm.hasError('required','Location')" style="color:red">
+              Location is required.
+            </div>
+          </div>
+          </div>
+          <div class="mb-3">
+          <input formControlName="Email" type="email" placeholder="Email"
+            [class.is-invalid]="registerForm.controls['Email'].invalid && (registerForm.controls['Email'].dirty || registerForm.controls['Email'].touched)">
+          <div *ngIf="registerForm.controls['Email'].invalid &&
+            (registerForm.controls['Email'].dirty || registerForm.controls['Email'].touched)" class="invalid-feedback">
+            <div *ngIf="registerForm.hasError('required','Email')" style="color:red">
+              Email is required.
+            </div>
+          </div>
+          <div *ngIf="registerForm.controls['Email'].touched" class="invalid-feedback">
+            <div *ngIf="registerForm.hasError('pattern','Email')" style="color:red">
+              Email is invalid.
+            </div>
+          </div>
+          </div>
+          <div class="mb-3">
+          <input formControlName="Password" type="password" placeholder="Password"
+            [class.is-invalid]="registerForm.controls['Password'].invalid && (registerForm.controls['Password'].dirty || registerForm.controls['Password'].touched)">
+          <div
+            *ngIf="registerForm.controls['Password'].invalid && (registerForm.controls['Password'].dirty || registerForm.controls['Password'].touched)"
+            class="invalid-feedback">
+            <div *ngIf="registerForm.hasError('required','Password')" style="color:red">
+              Password is required.
+            </div>
+          </div>
+          </div>
+          <div class="mb-3">
+          <input formControlName="ConfirmPassword" type="password" placeholder="Confirm Password"
+            [class.is-invalid]="registerForm.controls['ConfirmPassword'].invalid && (registerForm.controls['ConfirmPassword'].dirty || registerForm.controls['ConfirmPassword'].touched)">
+          <div
+            *ngIf="registerForm.controls['ConfirmPassword'].invalid && (registerForm.controls['ConfirmPassword'].dirty || registerForm.controls['ConfirmPassword'].touched)"
+            class="invalid-feedback">
+            <div *ngIf="registerForm.hasError('required','ConfirmPassword')" style="color:red">
+              Confirm password is required.
+            </div>
+            <div *ngIf="registerForm.hasError('confirmPasswordValidator','ConfirmPassword')" class="invalid-feedback">
+              <div *ngIf="registerForm.hasError('confirmPasswordValidator','ConfirmPassword')" style="color:red">
+                Passsword and Confirm Password didn't match.
+              </div>
+            </div>
+          </div>
+          </div>
+
+           <button (click)="Add()" type="submit">Register</button> -->
+
+          <div class="mb-3">
+            <input type="text" class="form-control" formControlName="FirstName" placeholder="First Name"
+              [class.is-invalid]="registerForm.controls['FirstName'].invalid && (registerForm.controls['FirstName'].dirty || registerForm.controls['FirstName'].touched)">
+            <div
+              *ngIf="registerForm.controls['FirstName'].invalid && (registerForm.controls['FirstName'].dirty || registerForm.controls['FirstName'].touched)"
+              class="invalid-feedback">
+              <div *ngIf="registerForm.hasError('required','FirstName')" style="color:red">
+                First name is required.
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control" formControlName="LastName" placeholder="Last Name"
+              [class.is-invalid]="registerForm.controls['LastName'].invalid && (registerForm.controls['LastName'].dirty || registerForm.controls['LastName'].touched)">
+            <div
+              *ngIf="registerForm.controls['LastName'].invalid && (registerForm.controls['LastName'].dirty || registerForm.controls['LastName'].touched)"
+              class="invalid-feedback">
+              <div *ngIf="registerForm.hasError('required','LastName')" style="color:red">
+                Last name is required.
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control" formControlName="Contact" placeholder="Contact"
+              [class.is-invalid]="registerForm.controls['Contact'].invalid && (registerForm.controls['Contact'].dirty || registerForm.controls['Contact'].touched)">
+            <div *ngIf="registerForm.controls['Contact'].invalid && registerForm.controls['Contact'].touched"
+              class="invalid-feedback">
+              <div *ngIf="registerForm.hasError('required','Contact')" style="color:red">
+                Please enter mobile number.
+              </div>
+              <div *ngIf="registerForm.hasError('pattern','Contact')" style="color:red">
+                Mobile number is not 10 digit.
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control" formControlName="Location" placeholder="Location"
+              [class.is-invalid]="registerForm.controls['Location'].invalid && (registerForm.controls['Location'].dirty || registerForm.controls['Location'].touched)">
+            <div
+              *ngIf="registerForm.controls['Location'].invalid && (registerForm.controls['Location'].dirty || registerForm.controls['Location'].touched)"
+              class="invalid-feedback">
+              <div *ngIf="registerForm.hasError('required','Location')" style="color:red">
+                Location is required.
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control" formControlName="Email" placeholder="Email"
+              [class.is-invalid]="registerForm.controls['Email'].invalid && (registerForm.controls['Email'].dirty || registerForm.controls['Email'].touched)">
+            <div *ngIf="registerForm.controls['Email'].invalid &&
+            (registerForm.controls['Email'].dirty || registerForm.controls['Email'].touched)" class="invalid-feedback">
+              <div *ngIf="registerForm.hasError('required','Email')" style="color:red">
+                Email is required.
+              </div>
+            </div>
+            <div *ngIf="registerForm.controls['Email'].touched" class="invalid-feedback">
+              <div *ngIf="registerForm.hasError('pattern','Email')" style="color:red">
+                Email is invalid.
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <input type="password" class="form-control" formControlName="Password" placeholder="Password"
+              [class.is-invalid]="registerForm.controls['Password'].invalid && (registerForm.controls['Password'].dirty || registerForm.controls['Password'].touched)">
+            <div
+              *ngIf="registerForm.controls['Password'].invalid && (registerForm.controls['Password'].dirty || registerForm.controls['Password'].touched)"
+              class="invalid-feedback">
+              <div *ngIf="registerForm.hasError('required','Password')" style="color:red">
+                Password is required.
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <input type="password" class="form-control" formControlName="ConfirmPassword" placeholder="Confirm Password"
+              [class.is-invalid]="registerForm.controls['ConfirmPassword'].invalid && (registerForm.controls['ConfirmPassword'].dirty || registerForm.controls['ConfirmPassword'].touched)">
+            <div
+              *ngIf="registerForm.controls['ConfirmPassword'].invalid && (registerForm.controls['ConfirmPassword'].dirty || registerForm.controls['ConfirmPassword'].touched)"
+              class="invalid-feedback">
+              <div *ngIf="registerForm.hasError('required','ConfirmPassword')" style="color:red">
+                Confirm password is required.
+              </div>
+              <div *ngIf="registerForm.hasError('confirmPasswordValidator','ConfirmPassword')" class="invalid-feedback">
+                <div *ngIf="registerForm.hasError('confirmPasswordValidator','ConfirmPassword')" style="color:red">
+                  Passsword and Confirm Password didn't match.
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button (click)="reset()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button (click)="add()" type="button" class="btn btn-primary">Add Employee</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+
+            <button style="margin-left: 87%;" type="button" class="btn btn-success">Success</button>
+
+          </div> -->
+<hr />
+</div>
+<table style="width: 90%; margin: auto; margin-top: 0px;" class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Email</th>
+      <th scope="col">Contact</th>
+      <th scope="col">Location</th>
+      <th scope="col">Password</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of userData | paginate: { itemsPerPage: 8, currentPage: p }">
+      <td>{{user.id}}</td>
+      <td>{{user.firstName}}</td>
+      <td>{{user.lastName}}</td>
+      <td>{{user.email}} </td>
+      <td>{{user.contact}} </td>
+      <td>{{user.location}} </td>
+      <td>{{user.password}} </td>
+      <td style="text-align: center;"><button style="margin-right: 10px; margin-left: 2px;" type="button" (click)="setUser()"
+          class="btn btn-info">Edit</button>
+        <button (click)="deleteUser(user.id)" type="button" class="btn btn-danger">Delete</button>
+      </td>
+      <!-- <td style="white-space: nowrap">
+          <button (click)="deleteUser(user.id)" class="btn btn-sm btn-danger btn-delete-user" [disabled]="user.isDeleting">
+            <span *ngIf="user.isDeleting" class="spinner-border spinner-border-sm"></span>
+            <span *ngIf="!user.isDeleting">Edit</span>
+        </button>
+            <a routerLink="edit/{{user.id}}" class="btn btn-sm btn-primary mr-1">Edit</a>
+          <button (click)="deleteUser(user.id)" class="btn btn-sm btn-danger btn-delete-user" [disabled]="user.isDeleting">
+              <span *ngIf="user.isDeleting" class="spinner-border spinner-border-sm"></span>
+              <span *ngIf="!user.isDeleting">Delete</span>
+          </button>
+      </td> -->
+    </tr>
+  </tbody>
+</table>
+<div style="text-align: right; margin-right: 70px;"><pagination-controls (pageChange)="p = $event"
+    class="float-right"></pagination-controls></div>
